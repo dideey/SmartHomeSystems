@@ -23,6 +23,12 @@ void setup() {
 }
 
 void loop() {
+
+    checkGas();
+    delay(3000);
+}
+
+void checkGas(){
     //stores the gas level read to a variable
     int gasLevel = analogRead(GAS_PIN);
 
@@ -38,9 +44,8 @@ void loop() {
         ledcWriteTone(TONE_PWM_CHANNEL, NOTE_C);  // Play a tone on the channel
         delay(1000);
         digitalWrite(LED_PIN, LOW);  // Turn LED off
+        delay(1000);
     } else {
         Serial.println("No Gas");
     }
-
-    delay(100);
 }
